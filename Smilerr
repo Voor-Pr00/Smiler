@@ -6,7 +6,7 @@ local entity = Creator.createEntity({
     CustomName = "Smiler", -- Custom name of your entity
     Model = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true", -- Can be GitHub file or rbxassetid
     Speed = 850, -- Percentage, 100 = default Rush speed
-    DelayTime = 12, -- Time before starting cycles (seconds)
+    DelayTime = 10, -- Time before starting cycles (seconds)
     HeightOffset = 1,
     CanKill = true,
     KillRange = 100,
@@ -92,31 +92,6 @@ end
 entity.Debug.OnDeath = function(entityTable)
     warn("Player has died.")
 
-local func, setupval, getinfo, typeof, getgc, next = nil, debug.setupvalue or setupvalue, debug.getinfo or getinfo, typeof, getgc, next
-
-for i,v in next, getgc(false) do
-    if typeof(v) == "function" then
-        local info = getinfo(v)
-        if info.currentline == 54 and info.nups == 2 and info.is_vararg == 0 then
-            func = v
-            break
-        end
-    end
-end
-
-local function DeathHint(hints, type: string)
-    setupval(func, 1, hints)
-    if type ~= nil then
-        setupval(func, 2, type)
-    end
-end
-
-DeathHint({
-    "Â¡Â¡ THIS SMILE IS LIKE ABMUSH !!",
-    "Hide and don't Smile",
-    "Don't get Tricked"
-}, "Blue") -- "Blue" or "Yellow"
-
 ---====== Load achievement giver ======---
 local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
@@ -125,7 +100,7 @@ achievementGiver({
     Title = "Smile to Fail",
     Desc = "Don't Smile",
     Reason = "Encounter And Dont Survive Smiler",
-    Image = "rbxassetid://10546902956"
+    Image = "rbxassetid://80963461875832"
 })
 end
 ------------------------
