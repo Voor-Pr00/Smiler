@@ -5,7 +5,7 @@ local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/MuhXd
 local entity = Creator.createEntity({
     CustomName = "Smiler", -- Custom name of your entity
     Model = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true", -- Can be GitHub file or rbxassetid
-    Speed = 850, -- Percentage, 100 = default Rush speed
+    Speed = 800, -- Percentage, 100 = default Rush speed
     DelayTime = 10, -- Time before starting cycles (seconds)
     HeightOffset = 1,
     CanKill = true,
@@ -19,7 +19,7 @@ local entity = Creator.createEntity({
     Cycles = {
         Min = 12,
         Max = 12,
-        WaitTime = 0.3,
+        WaitTime = 0.4,
     },
     CamShake = {
         true, -- Enabled/Disabled
