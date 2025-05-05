@@ -1,109 +1,127 @@
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/MuhXd/DoorSuff/main/OtherSuff/DoorEntitySpawn%2BSource"))()
--- Create entity
+local Spawner = loadstring(game:HttpGet('https://raw.githubusercontent.com/MuhXd/DoorSuff/main/OtherSuff/DoorEntitySpawn%2BSource'))()
 
-
-local entity = Creator.createEntity({
-    CustomName = "Smiler", -- Custom name of your entity
-    Model = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true", -- Can be GitHub file or rbxassetid
-    Speed = 800, -- Percentage, 100 = default Rush speed
-    DelayTime = 10, -- Time before starting cycles (seconds)
+local entity = Spawner.createEntity({
+    CustomName = "Smiler",
+    Model = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true",
+    Speed = 610,
+    DelayTime = 9,
     HeightOffset = 1,
     CanKill = true,
-    KillRange = 100,
+    NoDieOnCrouching = false,
+    NoHiding = false,
+    AntiCrucifix = false,
+    KillRange = 90,
+    OneRoom = false,
+    DieOnLook = false,
     BreakLights = true,
     BackwardsMovement = false,
+    MovementDeath = {
+        false,
+        '1',
+    },
     FlickerLights = {
-        true, -- Enabled/Disabled
-        6, -- Time (seconds)
+        true,
+        6
     },
     Cycles = {
-        Min = 12,
-        Max = 12,
-        WaitTime = 0.4,
+        Min = 14,
+        Max = 16,
+        WaitTime = 0.06,
     },
     CamShake = {
-        true, -- Enabled/Disabled
-        {20, 20, 1, 2}, -- Shake values (don't change if you don't know)
-        100, -- Shake start distance (from Entity to you)
+        true,
+        {3.5, 20, 0.1, 1},
+        100,
     },
     Jumpscare = {
-        true, -- Enabled/Disabled
+       False,
         {
-            Image1 = "rbxassetid://11417375410", -- Image1 url
-            Image2 = "rbxassetid://11417375410", -- Image2 url
-            Shake = true,
-            Sound1 = {
-                5263560566, -- SoundId
-                { Volume = 10 }, -- Sound properties
+            Type = "1",
+            Image1 = "rbxassetid://",
+            Image2 = "rbxassetid://",
+            Shake = false,
+            Sounds = {
+                "",
+                { Volume = 10 },
             },
             Sound2 = {
-                5263560566, -- SoundId
-                { Volume = 10 }, -- Sound properties
+                "",
+                { Volume = 10 },
             },
             Flashing = {
-                true, -- Enabled/Disabled
-                Color3.fromRGB(255, 0, 0), -- Color
+                False,
+                Color3.fromRGB(0, 0, 0),
             },
             Tease = {
-                false, -- Enabled/Disabled
-                Min = 4,
-                Max = 4,
+                false,
+                Min = 1,
+                Max = 1,
             },
         },
     },
-    CustomDialog = {"You died to who you call Ripper.", "You can tell his presence by the lights and his scream.", "Hide when he does this!"}, -- Custom death message
+    Color = 'GuidingLight',
+    DiffrentMessages = true,
+    CustomDialog = {
+        {"You die by whipser", "how to suviver?", "hide and user your skill", "so many eyes."},
+        {"Stop Dieing"},
+        {"Bruh", "Use what you have learned from Rush!"},
+        {"It seems like Template is causing quite the ruckus...", "Hide in a closet or bed as quickly as possible!"},
+        {"I have told You What to do", "YOU JUST HAVE A SKILL ISSUE"}
+    }
 })
- 
------[[ Advanced ]]-----
-entity.Debug.OnEntitySpawned = function(entityTable)
-    print("Entity has spawned:", entityTable.Model)
-end
- 
-entity.Debug.OnEntityDespawned = function(entityTable)
 
----====== Load achievement giver ======---
-local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+-- Advanced Debugging
+entity.Debug.OnEntityMoving = function(Invincible, Hiding, plrCollisionPoint)
+    print("Invincible: "..tostring(Invincible))
+    print("Player to Entity Collision (None hiding Point): "..tostring(plrCollisionPoint))
+    print("Hiding: "..tostring(Hiding))
+end
+
+entity.Debug.OnEntitySpawned = function()
+    print("Entity has spawned:")
+end
+
+entity.Debug.OnEntityDespawned = function()
+    print("Entity has despawned:")
+    local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 ---====== Display achievement ======---
 achievementGiver({
-    Title = "Hard to Escape",
-    Desc = "Stop Smiling",
-    Reason = "Encounter and Survive Smiler",
-    Image = "rbxassetid://80963461875832"
+    Title = "Income The Frowners",
+    Desc = "Stop smiling",
+    Reason = "Encounter and survival from Smiler",
+    Image = "rbxassetid://114562793565155"
 })
+    Followed:Destroy()
 end
- 
-entity.Debug.OnEntityStartMoving = function(entityTable)
-    print("Entity has started moving:", entityTable.Model)
+
+entity.Debug.OnEntityFinishedRebound = function()
+    print("Entity has finished rebound:")
 end
- 
-entity.Debug.OnEntityFinishedRebound = function(entityTable)
-    print("Entity has finished rebound:", entityTable.Model)
-end
- 
+
 entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
-    print("Entity:", entityTable.Model, "has entered room:", room)
+    print("Entity:", "has entered room:", room)
 end
- 
-entity.Debug.OnLookAtEntity = function(entityTable)
-    print("Player has looked at entity:", entityTable.Model)
-end
- 
-entity.Debug.OnDeath = function(entityTable)
-    warn("Player has died.")
 
----====== Load achievement giver ======---
-local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+entity.Debug.OnLookAtEntity = function()
+    print("Player has looked at entity:")
+end
+
+entity.Debug.OnDeath = function()
+    warn("Player has died.")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Jumpscare/refs/heads/main/Smiler"))()
+game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Smiler"
+
+   local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 ---====== Display achievement ======---
 achievementGiver({
-    Title = "Smile to Fail",
-    Desc = "Don't Smile",
-    Reason = "Encounter And Dont Survive Smiler",
-    Image = "rbxassetid://80963461875832"
+    Title = "The Killer are kill you.",
+    Desc = "Stop smiling",
+    Reason = "Can’t survival from Smiler",
+    Image = "rbxassetid://114562793565155"
 })
 end
-------------------------
- 
--- Run the created entity
-Creator.runEntity(entity)
+
+-- Run the entity
+Spawner.runEntity(entity)
