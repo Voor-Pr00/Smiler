@@ -76,7 +76,7 @@ entity.Debug.OnEntityMoving = function(Invincible, Hiding, plrCollisionPoint)
     print("Player to Entity Collision (None hiding Point): "..tostring(plrCollisionPoint))
     print("Hiding: "..tostring(Hiding))
 
-if game.Workspace:WaitForChild("RepentanceNEW", 750) then
+if game.Workspace:WaitForChild("FakeSmiler", 750) then
 local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 ---====== Display achievement ======---
