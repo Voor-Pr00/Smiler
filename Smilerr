@@ -75,6 +75,18 @@ entity.Debug.OnEntityMoving = function(Invincible, Hiding, plrCollisionPoint)
     print("Invincible: "..tostring(Invincible))
     print("Player to Entity Collision (None hiding Point): "..tostring(plrCollisionPoint))
     print("Hiding: "..tostring(Hiding))
+
+if game.Workspace:WaitForChild("RepentanceNEW", 750) then
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+---====== Display achievement ======---
+achievementGiver({
+    Title = "You put a smile on my face.",
+    Desc = "You’re annoying",
+    Reason = "Use Crucifix on Smiler",
+    Image = "rbxassetid://80963461875832"
+})
+end
 end
 
 entity.Debug.OnEntitySpawned = function()
@@ -101,17 +113,6 @@ end
 
 entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
     print("Entity:", "has entered room:", room)
-if game.Workspace:WaitForChild("RepentanceNEW", 750) then
-local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
----====== Display achievement ======---
-achievementGiver({
-    Title = "You put a smile on my face.",
-    Desc = "You’re annoying",
-    Reason = "Use Crucifix on Smiler",
-    Image = "rbxassetid://80963461875832"
-})
-end
 end
 
 entity.Debug.OnLookAtEntity = function()
