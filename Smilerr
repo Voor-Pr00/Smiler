@@ -108,7 +108,7 @@ local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.
 achievementGiver({
     Title = "You put a smile on my face.",
     Desc = "You’re annoying",
-    Reason = "Use Crucifix on "Smiler"",
+    Reason = "Use Crucifix on Smiler",
     Image = "rbxassetid://80963461875832"
 })
 end
