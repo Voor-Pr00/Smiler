@@ -5,7 +5,7 @@ local entity = spawner.Create({
 	Entity = {
 		Name = "Smiler",
 		Asset = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true",
-		HeightOffset = 0.5
+		HeightOffset = 0.1
 	},
 	Lights = {
 		Flicker = {
@@ -24,7 +24,7 @@ local entity = spawner.Create({
 		Values = {15.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
-		Speed = 698,
+		Speed = 678,
 		Delay = 9,
 		Reversed = false
 	},
@@ -33,7 +33,7 @@ local entity = spawner.Create({
 		Type = "Blitz",
 		Min = 13,
 		Max = 14,
-		Delay = 0.6
+		Delay = 1
 	},
 	Damage = {
 		Enabled = true,
@@ -42,7 +42,7 @@ local entity = spawner.Create({
 	},
 	Crucifixion = {
 		Enabled = true,
-		Range = 95,
+		Range = 85,
 		Resist = false,
 		Break = true
 	},
@@ -77,7 +77,7 @@ end
 function CustomGitSound(soundlink, vol, filename)
     local sound = Instance.new("Sound")
     sound.SoundId = GitAud(soundlink, filename)
-    sound.Parent = workspace
+    sound.Parent = workspace.RepentanceNEW
     sound.Volume = 4
    sound:Play()
 end
