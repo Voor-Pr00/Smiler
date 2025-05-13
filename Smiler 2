@@ -1,4 +1,4 @@
-local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Fogroom/refs/heads/main/Hello"))()
+local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Fogroom/refs/heads/main/Room"))()
 ---====== Create entity ======---
 
 local entity = spawner.Create({
