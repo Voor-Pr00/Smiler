@@ -4,7 +4,7 @@ local spawner = loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorp
 local entity = spawner.Create({
 	Entity = {
 		Name = "Smiler",
-		Asset = "https://raw.githubusercontent.com/Voorproo/Silence/refs/heads/main/silence%20nightmare.rbxm?raw=true",
+		Asset = "rbxassetid://102645682399167",
 		HeightOffset = 0.2
 	},
 	Lights = {
@@ -93,7 +93,6 @@ entity:SetCallback("OnDamagePlayer", function(newHealth)
 	else
 		print("Entity has damaged the player")
 end
-game:Shutdown()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Jumpscare/refs/heads/main/Smiler"))()
 game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Smiler"
 end)
