@@ -57,6 +57,7 @@ local entity = spawner.Create({
 
 entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
+game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(0, 191, 255)
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
@@ -76,6 +77,7 @@ end)
 
 entity:SetCallback("OnDespawning", function()
     print("Entity is despawning")
+game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(255, 255, 255)
 local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
 
 ---====== Display achievement ======---
@@ -94,7 +96,7 @@ entity:SetCallback("OnDamagePlayer", function(newHealth)
 		print("Entity has damaged the player")
 end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Jumpscare/refs/heads/main/Smiler"))()
-game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Smiler"
+game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "NIGHTMARE_Smiler"
 end)
 
 ---====== Run entity ======---
