@@ -5,7 +5,7 @@ local entity = spawner.Create({
 	Entity = {
 		Name = "Smiler",
 		Asset = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true",
-		HeightOffset = 0
+		HeightOffset = 0.5
 	},
 	Lights = {
 		Flicker = {
@@ -24,7 +24,7 @@ local entity = spawner.Create({
 		Values = {15.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
-		Speed = 650,
+		Speed = 670,
 		Delay = 9,
 		Reversed = false
 	},
@@ -33,11 +33,11 @@ local entity = spawner.Create({
 		Type = "Ambush",
 		Min = 5,
 		Max = 5,
-		Delay = 1.3
+		Delay = 1.1
 	},
 	Damage = {
 		Enabled = true,
-		Range = 80,
+		Range = 78,
 		Amount = 100
 	},
 	Crucifixion = {
