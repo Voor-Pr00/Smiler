@@ -10,7 +10,7 @@ local entity = spawner.Create({
 	Lights = {
 		Flicker = {
 			Enabled = true,
-			Duration = 6
+			Duration = 8
 		},
 		Shatter = true,
 		Repair = false
@@ -24,8 +24,8 @@ local entity = spawner.Create({
 		Values = {15.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
-		Speed = 670,
-		Delay = 9,
+		Speed = 680,
+		Delay = 12,
 		Reversed = false
 	},
 	Rebounding = {
@@ -33,7 +33,7 @@ local entity = spawner.Create({
 		Type = "Ambush",
 		Min = 5,
 		Max = 5,
-		Delay = 0.8
+		Delay = 1.1
 	},
 	Damage = {
 		Enabled = true,
@@ -76,15 +76,6 @@ end)
 
 entity:SetCallback("OnDespawning", function()
     print("Entity is despawning")
-local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
----====== Display achievement ======---
-achievementGiver({
-    Title = "Income The Frowners",
-    Desc = "Stop smiling",
-    Reason = "Encounter and survival from Smiler",
-    Image = "rbxassetid://114562793565155"
-})
 end)
 
 entity:SetCallback("OnDamagePlayer", function(newHealth)
@@ -94,6 +85,8 @@ entity:SetCallback("OnDamagePlayer", function(newHealth)
 		print("Entity has damaged the player")
 end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Jumpscare/refs/heads/main/Smiler"))()
+wait(0.8)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/spawnnn/refs/heads/main/Smiler"))()
 game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Smiler"
 end)
 
