@@ -5,12 +5,12 @@ local entity = spawner.Create({
 	Entity = {
 		Name = "Smiler",
 		Asset = "https://github.com/PABMAXICHAC/doors-monsters-models/blob/main/Smiler.rbxm?raw=true",
-		HeightOffset = 0.5
+		HeightOffset = 0.3
 	},
 	Lights = {
 		Flicker = {
 			Enabled = true,
-			Duration = 8
+			Duration = 10
 		},
 		Shatter = true,
 		Repair = false
@@ -24,20 +24,20 @@ local entity = spawner.Create({
 		Values = {15.5, 20, 0.1, 1} -- Magnitude, Roughness, FadeIn, FadeOut
 	},
 	Movement = {
-		Speed = 680,
-		Delay = 12,
+		Speed = 690,
+		Delay = 13,
 		Reversed = false
 	},
 	Rebounding = {
 		Enabled = true,
 		Type = "Ambush",
-		Min = 5,
-		Max = 5,
-		Delay = 1.1
+		Min = 6,
+		Max = 6,
+		Delay = 0.7
 	},
 	Damage = {
 		Enabled = true,
-		Range = 78,
+		Range = 79,
 		Amount = 100
 	},
 	Crucifixion = {
@@ -57,6 +57,19 @@ local entity = spawner.Create({
 
 entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
+if game.Workspace:WaitForChild("RepentanceNEW") then
+wait(4.5)
+---====== Load achievement giver ======---
+local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
+
+---====== Display achievement ======---
+achievementGiver({
+    Title = "You put a smile on my face",
+    Desc = "You’re annoying.",
+    Reason = "Used Crucifix on Smiler",
+    Image = "rbxassetid://85001453943077"
+}) 
+end
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
@@ -85,8 +98,6 @@ entity:SetCallback("OnDamagePlayer", function(newHealth)
 		print("Entity has damaged the player")
 end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/Jumpscare/refs/heads/main/Smiler"))()
-wait(0.8)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Voorproo/spawnnn/refs/heads/main/Smiler"))()
 game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Smiler"
 end)
 
