@@ -57,19 +57,6 @@ local entity = spawner.Create({
 
 entity:SetCallback("OnSpawned", function()
     print("Entity has spawned")
-if game.Workspace:WaitForChild("RepentanceNEW") then
-wait(4.5)
----====== Load achievement giver ======---
-local achievementGiver = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
----====== Display achievement ======---
-achievementGiver({
-    Title = "You put a smile on my face",
-    Desc = "You’re annoying.",
-    Reason = "Used Crucifix on Smiler",
-    Image = "rbxassetid://85001453943077"
-}) 
-end
 end)
 
 entity:SetCallback("OnEnterRoom", function(room, firstTime)
